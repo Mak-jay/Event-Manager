@@ -1,0 +1,15 @@
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Controller/EventController.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/DTOs/EventDTO.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/DTOs/LoginDTO.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/DTOs/UserDTO.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/EventManagerApplication.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Exceptions/ErrorMessage.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Exceptions/EventNotFoundException.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Exceptions/GlobalErrorHandler.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Exceptions/UserNotFoundException.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Model/Event.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Model/User.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Repositories/EventRepo.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Repositories/UserRepo.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Services/EventService.java
+/Users/jaymakwana/MyLearningStuff/Event-Manager/src/main/java/com/jay/EventManager/Services/EventServiceImp.java
