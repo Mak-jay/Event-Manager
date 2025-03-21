@@ -1,5 +1,6 @@
 package com.jay.EventManager.Services;
 
+import com.jay.EventManager.Exceptions.EventNotFoundException;
 import org.modelmapper.ModelMapper;
 
 import com.jay.EventManager.DTOs.EventDTO;
@@ -45,4 +46,49 @@ public class EventServiceImp implements EventService{
 
         return modelMapper.map(createdEvent, EventDTO.class);
     }
+    @Override
+    public EventDTO updateEvent(Long eventId,EventDTO eventDTO)throws EventNotFoundException{
+
+        Event event = eventRepo.findById(eventId)
+                .orElseThrow(() -> new EventNotFoundException("Event is not found with id : "+eventId));
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if(!email.equals(event.getUser().getUserEmail())) {
+            throw new EventNotFoundException("You have not scheduled any event with event id " + eventId + " to update !!");
+        }
+        event.setEventName(eventDTO.getEventName());
+        event.setStartDate(eventDTO.getStartDate());
+        event.setEndDate(eventDTO.getEndDate());
+        event.setStartTime(eventDTO.getStartTime());
+        event.setEndTime(eventDTO.getEndTime());
+
+        int startDay = event.getStartDate().getDayOfMonth();
+        int endDay = event.getEndDate().getDayOfMonth();
+
+        if (startDay - endDay == 0) {
+            event.setEventType("Non-recurring");
+        } else {
+            event.setEventType("Recurring");
+        }
+
+        event = eventRepo.save(event);
+
+        return modelMapper.map(event, EventDTO.class);
+
+    }
+
+    @Override
+    public String deleteEvent(Long eventId) throws EventNotFoundException {
+        Event event = eventRepo.findById(eventId)
+                .orElseThrow(()-> new EventNotFoundException("Event with is not found with id "+eventId));
+
+        String email = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if(!email.equals(event.getUser().getUserEmail())) {
+            throw new EventNotFoundException("You have not scheduled any event with id " + eventId + " to delete !!");
+        }
+        eventRepo.delete(event);
+        return "Event with id " + eventId + " deleted successfully !!";
+    }
+
 }
